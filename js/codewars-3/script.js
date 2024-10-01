@@ -1,17 +1,7 @@
 "use strict";
-function points(games) {
-  return games;
-  let total = 0;
-  games.forEach((games) => {
-    let [x, y] = games.split(":").map(Number);
-  });
-
-  if (x > y) {
-    total += 3;
-  } else if ((x = y)) {
-    total += 1;
-  } else {
-    return total;
-  }
-  console.log(points(["3:1", "3:2", "0:1"]));
-}
+const points = (gamesa) =>
+  gamesa.reduce((r, e) => {
+    const x = e[0];
+    const y = e[2];
+    return r + (x > y ? 3 : x < y ? 0 : 1);
+  }, 0);
